@@ -1,0 +1,1233 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTAT Master Preparation Portal 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #e2e8f0;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --header-bg: #f1f5f9;
+            --border-color: #cbd5e1;
+            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            --accent-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --purple-gradient: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+        }
+
+        [data-theme="dark"] {
+            --bg-main: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --header-bg: #090d16;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-main);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-main);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            border: 2px solid var(--border-color);
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: 120px 1fr 120px;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+        }
+
+        .brand-logo-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            background: var(--header-bg);
+            padding: 10px;
+            border-radius: 14px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .brand-logo-box img {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #f59e0b;
+        }
+
+        .htat-star-badge {
+            background: var(--accent-gradient);
+            color: white;
+            font-weight: 900;
+            font-size: 18px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .header-title {
+            text-align: center;
+        }
+
+        .header-title h2 {
+            margin: 0 0 8px 0;
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-title h1 {
+            margin: 0;
+            font-size: 19px;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 14px 22px;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            background: var(--header-bg);
+            color: var(--text-main);
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 2px solid var(--border-color);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            border-color: #3b82f6;
+            color: #2563eb;
+        }
+
+        .nav-btn.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .section-box { display: none; }
+        .section-box.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .home-grid-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .home-grid-bottom {
+            display: flex;
+            justify-content: center;
+        }
+
+        .home-grid-bottom .digital-card {
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .digital-card {
+            background: var(--header-bg);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s;
+            border: 2px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .digital-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-btn-3d {
+            display: block;
+            width: 100%;
+            padding: 18px 20px;
+            font-size: 17px;
+            font-weight: 800;
+            color: white;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 15px;
+        }
+
+        .card-btn-3d:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+
+        .btn-part1 { background: var(--primary-gradient); }
+        .btn-part2 { background: var(--accent-gradient); }
+        .btn-part3 { background: var(--purple-gradient); }
+
+        .digital-card h3 { font-size: 22px; color: var(--text-main); margin-bottom: 12px; font-weight: 800; }
+        .digital-card p { color: #64748b; font-size: 15px; margin-bottom: 15px; line-height: 1.6; }
+
+        .dropdown-card { background: var(--header-bg); border: 2px solid var(--border-color); border-radius: 14px; margin-bottom: 18px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
+        .dropdown-header { padding: 20px 22px; background: var(--card-bg); cursor: pointer; font-weight: 700; font-size: 17px; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; color: var(--text-main); border-bottom: 2px solid var(--border-color); }
+        .dropdown-header:hover { opacity: 0.9; }
+        .dropdown-content { padding: 22px; display: none; background: var(--header-bg); }
+
+        .action-btn { padding: 14px 28px; background: var(--primary-gradient); color: white; border: none; border-radius: 14px; cursor: pointer; font-weight: 800; font-size: 16px; margin: 6px; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35); transition: all 0.3s; text-transform: uppercase; }
+        .action-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+        .study-btn { background: var(--success-gradient); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.35); }
+        .danger-btn { background: var(--danger-gradient); box-shadow: 0 8px 25px rgba(239, 68, 68, 0.35); }
+
+        .exam-timer-bar {
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .study-content-box { background: #f0fdf4; border-left: 6px solid #10b981; padding: 22px; border-radius: 12px; margin-bottom: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        [data-theme="dark"] .study-content-box { background: #064e3b; }
+        
+        .question-card { margin-bottom: 22px; padding: 22px; border: 2px solid var(--border-color); border-radius: 14px; background: var(--header-bg); box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+        .options label { display: block; margin: 10px 0; cursor: pointer; padding: 12px 16px; border-radius: 10px; border: 2px solid var(--border-color); font-size: 15px; font-weight: 500; transition: background 0.2s; background: var(--card-bg); color: var(--text-main); }
+        .options label:hover { opacity: 0.8; }
+        
+        .correct-bg { background: #d1fae5 !important; border-color: #10b981 !important; border-left: 6px solid #10b981; color: #065f46 !important; }
+        [data-theme="dark"] .correct-bg { background: #064e3b !important; color: #34d399 !important; }
+        .incorrect-bg { background: #fee2e2 !important; border-color: #ef4444 !important; border-left: 6px solid #ef4444; color: #991b1b !important; }
+        [data-theme="dark"] .incorrect-bg { background: #7f1d1d !important; color: #fca5a5 !important; }
+
+        .admin-login-box { max-width: 400px; margin: 30px auto; background: var(--header-bg); padding: 30px; border-radius: 18px; border: 2px solid var(--border-color); box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
+        .admin-login-box input { width: 100%; padding: 12px; margin: 10px 0 18px 0; border-radius: 10px; border: 2px solid var(--border-color); font-size: 15px; box-sizing: border-box; background: var(--card-bg); color: var(--text-main); }
+        
+        .admin-panel { background: var(--header-bg); border: 3px dashed #f59e0b; padding: 25px; border-radius: 18px; margin-top: 15px; }
+        textarea { width: 100%; height: 150px; padding: 14px; font-family: monospace; font-size: 14px; border: 2px solid var(--border-color); border-radius: 10px; box-sizing: border-box; background: var(--card-bg); color: var(--text-main); }
+
+        .leaderboard-box { background: var(--header-bg); border: 2px solid var(--border-color); border-radius: 14px; padding: 22px; margin-top: 18px; }
+        .score-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; border-bottom: 2px solid var(--border-color); font-size: 15px; font-weight: 600; color: var(--text-main); }
+
+        .theme-toggle { position: absolute; top: 20px; right: 20px; background: var(--header-bg); border: 2px solid var(--border-color); color: var(--text-main); padding: 8px 14px; border-radius: 30px; cursor: pointer; font-weight: 700; font-size: 13px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            border-top: 2px solid var(--border-color);
+            padding-top: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-content {
+            display: inline-block;
+            background: var(--header-bg);
+            color: var(--text-main);
+            padding: 12px 30px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-size: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .footer-content span {
+            font-weight: 700;
+            color: #3b82f6;
+        }
+
+        /* Audio Controls Bar */
+        .audio-control-bar {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            padding: 15px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+<!-- BACKGROUND AUDIO KEEPALIVE -->
+<audio id="htat-silent-keeper" loop preload="auto" src="data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA"></audio>
+
+<div class="container">
+    <button class="theme-toggle" onclick="toggleTheme()">🌓 Dark / Light Theme</button>
+
+    <div class="header">
+        <div class="brand-logo-box" title="શ્રી સરસ્વતી માતાજી">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=120&auto=format&fit=crop&q=80" alt="Mataji">
+            <span style="font-size: 12px; font-weight: 700;">શ્રી સરસ્વતી</span>
+        </div>
+        <div class="header-title">
+            <h2>🙏 જય માતાજી 🙏</h2>
+            <h1>HTAT MASTER PREPARATION PORTAL 2026</h1>
+        </div>
+        <div class="brand-logo-box" style="border-color: #f59e0b;" title="HTAT Star">
+            <div class="htat-star-badge">H★</div>
+            <span style="background: var(--accent-gradient); -webkit-background-clip: text; font-weight:800; font-size:13px;">HTAT STAR</span>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+        <button class="nav-btn active" onclick="switchMainTab('home')">🏠 Home Dashboard</button>
+        <button class="nav-btn" onclick="switchMainTab('part1')">📚 Part - 1</button>
+        <button class="nav-btn" onclick="switchMainTab('part2')">📖 Part - 2</button>
+        <button class="nav-btn" onclick="switchMainTab('part3')">📜 Part - 3 (Old Papers)</button>
+        <button class="nav-btn" onclick="switchMainTab('leaderboard')">🏆 Leaderboard</button>
+        <button class="nav-btn" onclick="switchMainTab('admin')">⚙️ Admin Panel</button>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="home-section" class="section-box active">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h3 style="font-size: 26px; font-weight: 800;">Head Teacher Aptitude Test Preparation Portal</h3>
+            <p style="color: #64748b; font-size: 15px; max-width: 750px; margin: 0 auto; line-height: 1.6;">
+                તમારી પરીક્ષાની સંપૂર્ણ તૈયારી માટે ભાગ-૧, ભાગ-૨ તેમજ ભાગ-૩ (જુના પેપર્સ) ના તમામ વિષયોની નોટ્સ, ૩૦ રેન્ડમ પ્રશ્નોની લાઈવ ટેસ્ટ તેમજ **૧૫૦ માર્ક્સની ફુલ મોક ટેસ્ટ (ટાઈમર સાથે)** અહીં ઉપલબ્ધ છે.
+            </p>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; border-radius: 18px; padding: 25px; text-align: center; margin-bottom: 25px; border: 2px solid #f59e0b; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <h2 style="margin: 0 0 10px 0; color: #f59e0b; font-size: 22px; font-weight: 900;">🎯 HTAT 150 Marks Full Mock Exam</h2>
+            <p style="margin: 0 0 18px 0; font-size: 14px; color: #cbd5e1;">બધા જ ભાગો અને જૂના પેપરોના પ્રશ્નોમાંથી ઓટોમેટિક ૧૫૦ પ્રશ્નોનું ફાઇનલ પેપર અને લાઈવ ટાઈમર સાથે તમારી તૈયારી પરખો!</p>
+            <button class="action-btn" style="background: var(--accent-gradient); font-size: 16px; padding: 14px 35px;" onclick="startFullMockExam()">🚀 ૧૫૦ માર્ક્સની ફુલ એક્ઝામ શરૂ કરો (Start Mock Test)</button>
+        </div>
+
+        <div class="home-grid-top">
+            <div class="digital-card">
+                <h3>📚 Part - 1: સામાન્ય અભ્યાસ</h3>
+                <p>ઇતિહાસ, ભૂગોળ, બંધારણ, રીઝનિંગ, વિજ્ઞાન, વર્તમાન પ્રવાહો, POCSO Act અને ભવિષ્યનું ખાનું.</p>
+                <button class="card-btn-3d btn-part1" onclick="switchMainTab('part1')">ભાગ - ૧ ઓપન કરો</button>
+            </div>
+            
+            <div class="digital-card">
+                <h3>📖 Part - 2: શૈક્ષણિક કાયદાઓ અને સંચાલન</h3>
+                <p>RTE Act 2009, ગુજરાત પ્રાથમિક શિક્ષણ અધિનિયમ, NEP 2020, નાણાકીય નિયમો અને ભવિષ્યના ૨ ખાનાઓ.</p>
+                <button class="card-btn-3d btn-part2" onclick="switchMainTab('part2')">ભાગ - ૨ ઓપન કરો</button>
+            </div>
+        </div>
+
+        <div class="home-grid-bottom">
+            <div class="digital-card">
+                <h3>📜 Part - 3: અગાઉના વર્ષોના પેપર્સ (રિવિઝન)</h3>
+                <p>વર્ષ ૨૦૧૨ થી ૨૦૧૭ ના પેપરો તથા ભવિષ્યના ૨ વધારાના ખાનાઓ સાથે.</p>
+                <button class="card-btn-3d btn-part3" onclick="switchMainTab('part3')">ભાગ - ૩ ઓપન કરો</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PART 1 SECTION -->
+    <div id="part1-section" class="section-box">
+        <button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="stopSpeech(); switchMainTab('home')">🏠 હોમ પેજ પર પાછા જાઓ</button>
+        <h2 style="font-weight: 800; font-size: 24px; margin-bottom: 18px;">📚 Part - 1: સામાન્ય અભ્યાસ</h2>
+        <div id="part1-subjects-container"></div>
+    </div>
+
+    <!-- PART 2 SECTION -->
+    <div id="part2-section" class="section-box">
+        <button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="stopSpeech(); switchMainTab('home')">🏠 હોમ પેજ પર પાછા જાઓ</button>
+        <h2 style="font-weight: 800; font-size: 24px; margin-bottom: 18px;">📖 Part - 2: શૈક્ષણિક કાયદાઓ અને સંચાલન</h2>
+        <div id="part2-subjects-container"></div>
+    </div>
+
+    <!-- PART 3 SECTION -->
+    <div id="part3-section" class="section-box">
+        <button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="stopSpeech(); switchMainTab('home')">🏠 હોમ પેજ પર પાછા જાઓ</button>
+        <h2 style="font-weight: 800; font-size: 24px; margin-bottom: 18px;">📜 Part - 3: અગાઉ લેવાયેલી HTAT એક્ઝામના પેપરો (રિવિઝન)</h2>
+        <div id="part3-subjects-container"></div>
+    </div>
+
+    <!-- STUDY & TEST VIEW -->
+    <div id="content-view-section" class="section-box">
+        <button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="goBackToMenu()">⬅ મુખ્ય મેનુ પર પાછા જાઓ</button>
+        <div id="dynamic-content-area"></div>
+    </div>
+
+    <!-- LEADERBOARD & PROGRESS -->
+    <div id="leaderboard-section" class="section-box">
+        <button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="stopSpeech(); switchMainTab('home')">🏠 હોમ પેજ પર પાછા જાઓ</button>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 18px;">
+            <h2 style="font-weight: 800; font-size: 24px; margin: 0;">🏆 પ્રગતિ પત્રક અને સ્કોર ફિલ્ટર</h2>
+            <div>
+                <label style="font-weight: 700; margin-right: 8px;">ફિલ્ટર પસંદ કરો:</label>
+                <select id="leaderboard-filter-select" onchange="renderLeaderboard()" style="padding: 10px 14px; border-radius: 10px; border: 2px solid var(--border-color); font-family: 'Poppins', sans-serif; font-size: 14px; background: var(--card-bg); color: var(--text-main);">
+                    <option value="all">બધા જ સ્કોર (All Scores)</option>
+                    <option value="part1">ભાગ - ૧ (સામાન્ય અભ્યાસ)</option>
+                    <option value="part2">ભાગ - ૨ (શૈક્ષણિક કાયદાઓ)</option>
+                    <option value="part3">ભાગ - ૩ (જૂના પેપરો)</option>
+                    <option value="full_mock">૧૫૦ માર્ક્સ ફુલ મોક ટેસ્ટ</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="leaderboard-box" id="leaderboard-content"></div>
+        <button class="action-btn danger-btn" style="margin-top: 18px;" onclick="resetLeaderboard()">બધો સ્કોર રીસેટ કરો (Reset Progress)</button>
+    </div>
+
+    <!-- SECURE ADMIN PANEL -->
+    <div id="admin-section" class="section-box">
+        <button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="stopSpeech(); switchMainTab('home')">🏠 હોમ પેજ પર પાછા જાઓ</button>
+        
+        <div id="admin-login-container" class="admin-login-box">
+            <h2 style="margin-top: 0; font-weight: 800;">🔐 એડમિન લોગિન</h2>
+            <p style="color: #64748b; font-size: 13px;">પ્રશ્નો ઉમેરવા અને મેનેજ કરવા માટે લોગિન કરો:</p>
+            <input type="text" id="admin-user-id" placeholder="User ID (admin)">
+            <input type="password" id="admin-pass" placeholder="Password (123)">
+            <button class="action-btn" style="width: 100%; padding: 12px; font-size: 15px;" onclick="verifyAdminLogin()">લોગિન કરો (Login)</button>
+            <div id="login-error" style="color: #ef4444; font-weight: 700; margin-top: 8px;"></div>
+        </div>
+
+        <div id="admin-dashboard-container" style="display: none;" class="admin-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+                <h2 style="color: #f59e0b; margin: 0; font-weight: 800;">⚙️ એડમિન પેનલ (Question & JSON Manager)</h2>
+                <button class="action-btn danger-btn" onclick="adminLogout()">લોગ આઉટ (Logout)</button>
+            </div>
+            
+            <div style="margin-bottom: 18px;">
+                <label style="font-weight: 700;"><b>ભાગ પસંદ કરો (Select Part):</b></label>
+                <select id="admin-part-select" onchange="updateAdminSubDropdown()" style="padding: 10px; width: 100%; margin: 6px 0; border-radius: 8px; border: 2px solid var(--border-color); font-family: 'Poppins', sans-serif; font-size: 14px; background: var(--card-bg); color: var(--text-main);">
+                    <option value="part1">ભાગ - ૧ (સામાન્ય અભ્યાસ)</option>
+                    <option value="part2">ભાગ - ૨ (શૈક્ષણિક કાયદાઓ અને સંચાલન)</option>
+                    <option value="part3">ભાગ - ૩ (જૂના પેપરો - રિવિઝન)</option>
+                </select>
+
+                <label style="font-weight: 700;"><b>વિષય અથવા વર્ષ પસંદ કરો (Select Subject/Year):</b></label>
+                <select id="admin-subject-select" onchange="renderAdminQuestionList()" style="padding: 10px; width: 100%; margin: 6px 0; border-radius: 8px; border: 2px solid var(--border-color); font-family: 'Poppins', sans-serif; font-size: 14px; background: var(--card-bg); color: var(--text-main);">
+                </select>
+            </div>
+
+            <hr style="border: 0; border-top: 2px dashed #f59e0b; margin: 20px 0;">
+
+            <h3 style="color: #f59e0b; font-size: 18px; font-weight: 700;">૧. નવા પ્રશ્નો ઉમેરો (Add via JSON)</h3>
+            <textarea id="admin-json-input" placeholder='[
+  {
+    "q": "પ્રશ્ન અહીં લખો?",
+    "options": ["A) વિકલ્પ ૧", "B) વિકલ્પ ૨", "C) વિકલ્પ ૩", "D) વિકલ્પ ૪"],
+    "answer": 1
+  }
+]'></textarea>
+            <button class="action-btn" style="margin-top: 12px; background: var(--accent-gradient); width: 100%; padding: 14px; font-size: 16px;" onclick="saveAdminQuestions()">પ્રશ્નો સેવ કરો (Save JSON)</button>
+            <div id="admin-msg" style="margin-top: 10px; font-weight: 700; text-align: center;"></div>
+
+            <hr style="border: 0; border-top: 2px dashed #f59e0b; margin: 25px 0;">
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="color: #f59e0b; font-size: 18px; font-weight: 700; margin: 0;">૨. પ્રશ્નો મેનેજ કરો અને ડિલીટ કરો</h3>
+                <button class="action-btn danger-btn" onclick="bulkDeleteQuestions()">બધા જ પ્રશ્નો બલ્ક ડિલીટ કરો (Bulk Delete All)</button>
+            </div>
+            
+            <div id="admin-question-list-box" style="background: var(--card-bg); padding: 15px; border-radius: 10px; border: 2px solid var(--border-color); max-height: 350px; overflow-y: auto;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            Developer & Creator: <span>RAKESHKUMAR PRAJAPATI</span> &nbsp;|&nbsp; Contact: <span>+91 81408 44248</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('htat_theme', newTheme);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('htat_theme') || 'light';
+        document.body.setAttribute('data-theme', savedTheme);
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
+        }
+    });
+
+    // =========================================================================
+    // ADVANCED CONTINUOUS TTS ENGINE (SCREEN-LOCK PREVENTER + RESUME CAPABLE)
+    // =========================================================================
+    let isAutoReading = false;
+    let wakeLock = null;
+    let speechKeepAliveTimer = null;
+    let currentQuestionsList = [];
+    let currentQIndex = 0;
+    const silentKeeper = document.getElementById('htat-silent-keeper');
+
+    async function requestWakeLock() {
+        try {
+            if ('wakeLock' in navigator) {
+                wakeLock = await navigator.wakeLock.request('screen');
+                wakeLock.addEventListener('release', () => {
+                    // જો વાંચન ચાલુ હોય અને સિસ્ટમ સ્ક્રીન છોડે, તો ફરી મેળવવી
+                    if (isAutoReading) requestWakeLock();
+                });
+            }
+        } catch (e) {}
+    }
+
+    function releaseWakeLock() {
+        if (wakeLock !== null) {
+            wakeLock.release().then(() => { wakeLock = null; });
+        }
+    }
+
+    function startBackgroundKeepAlive() {
+        requestWakeLock();
+        silentKeeper.play().catch(() => {});
+        
+        // Watchdog to prevent Chrome Android audio freeze
+        if (speechKeepAliveTimer) clearInterval(speechKeepAliveTimer);
+        speechKeepAliveTimer = setInterval(() => {
+            if (isAutoReading && 'speechSynthesis' in window) {
+                if (window.speechSynthesis.speaking && window.speechSynthesis.paused) {
+                    window.speechSynthesis.resume();
+                }
+            }
+        }, 2000);
+    }
+
+    function stopSpeech() {
+        isAutoReading = false;
+        releaseWakeLock();
+        if (silentKeeper) {
+            silentKeeper.pause();
+            silentKeeper.currentTime = 0;
+        }
+        if (speechKeepAliveTimer) {
+            clearInterval(speechKeepAliveTimer);
+            speechKeepAliveTimer = null;
+        }
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+        }
+        updateAudioStatusBar("અવાજ બંધ છે.");
+    }
+
+    function updateAudioStatusBar(msg) {
+        const stat = document.getElementById('audio-live-status');
+        if (stat) stat.innerText = msg;
+    }
+
+    function speakSingleQuestion(qText, ansText) {
+        stopSpeech();
+        if (!('speechSynthesis' in window)) {
+            alert("તમારા બ્રાઉઝરમાં ઓડિયો સપોર્ટ નથી.");
+            return;
+        }
+
+        startBackgroundKeepAlive();
+        const textToRead = `${qText}.. સાચો જવાબ છે.. ${ansText}`;
+        const u = new SpeechSynthesisUtterance(textToRead);
+        u.lang = 'gu-IN';
+        u.rate = 0.95;
+
+        const voices = window.speechSynthesis.getVoices();
+        const guVoice = voices.find(v => v.lang.includes('gu'));
+        if (guVoice) u.voice = guVoice;
+
+        u.onend = () => { stopSpeech(); };
+        u.onerror = () => { stopSpeech(); };
+
+        window.speechSynthesis.speak(u);
+    }
+
+    function startAutoReadFromIndex(startIndex) {
+        if (!currentQuestionsList || currentQuestionsList.length === 0) {
+            alert("વાંચવા માટે પ્રશ્નો ઉપલબ્ધ નથી.");
+            return;
+        }
+
+        if (startIndex < 0) startIndex = 0;
+        if (startIndex >= currentQuestionsList.length) {
+            alert(`કૃપા કરીને ૧ થી ${currentQuestionsList.length} વચ્ચેનો નંબર પસંદ કરો.`);
+            return;
+        }
+
+        stopSpeech();
+        isAutoReading = true;
+        currentQIndex = startIndex;
+        startBackgroundKeepAlive();
+
+        readNextQuestion();
+    }
+
+    function triggerCustomStart() {
+        const inputElem = document.getElementById('jump-to-q-input');
+        let val = parseInt(inputElem.value);
+        if (isNaN(val) || val < 1) val = 1;
+        startAutoReadFromIndex(val - 1);
+    }
+
+    function resumeOrStartAutoRead() {
+        startAutoReadFromIndex(currentQIndex);
+    }
+
+    function readNextQuestion() {
+        if (!isAutoReading || currentQIndex >= currentQuestionsList.length) {
+            stopSpeech();
+            updateAudioStatusBar("બધા પ્રશ્નોનું વાચન પૂર્ણ થયું.");
+            return;
+        }
+
+        const item = currentQuestionsList[currentQIndex];
+        const correctAns = item.options[item.answer] || '';
+        const textToRead = `પ્રશ્ન ${currentQIndex + 1}.. ${item.q}.. સાચો જવાબ છે.. ${correctAns}`;
+
+        updateAudioStatusBar(`🔊 પ્રશ્ન ${currentQIndex + 1} વંચાઈ રહ્યો છે... (કુલ: ${currentQuestionsList.length})`);
+        
+        const inputElem = document.getElementById('jump-to-q-input');
+        if (inputElem) inputElem.value = currentQIndex + 1;
+
+        const u = new SpeechSynthesisUtterance(textToRead);
+        u.lang = 'gu-IN';
+        u.rate = 0.95;
+
+        const voices = window.speechSynthesis.getVoices();
+        const guVoice = voices.find(v => v.lang.includes('gu'));
+        if (guVoice) u.voice = guVoice;
+
+        u.onend = () => {
+            if (isAutoReading) {
+                currentQIndex++;
+                readNextQuestion();
+            }
+        };
+
+        u.onerror = () => {
+            if (isAutoReading) {
+                currentQIndex++;
+                readNextQuestion();
+            }
+        };
+
+        window.speechSynthesis.speak(u);
+    }
+
+    // ==========================================
+    // DATABASE & PORTAL ENGINE
+    // ==========================================
+    let defaultDb = {
+        "part1": [
+            { id: "hist", name: "૧. ઇતિહાસ, ભૂગોળ અને સાંસ્કૃતિક વારસો", studyText: "ગુજરાત અને ભારતનો ઇતિહાસ, મહત્વની લડાઈઓ, ભૌગોલિક વિશેષતાઓ અને સાંસ્કૃતિક વારસાના અગત્યના મુદ્દાઓ.", questions: [
+                { q: "ગુજરાતના કયા પ્રદેશમાં 'હડપ્પીય સંસ્કૃતિ'નું મહત્ત્વનું બંદર લોથલ આવેલું છે?", options: ["A) કચ્છ", "B) સૌરાષ્ટ્ર", "C) ભાલ પ્રદેશ (ધંધુકા)", "D) ઉત્તર ગુજરાત"], answer: 2 },
+                { q: "સોલંકી યુગ દરમિયાન ગુજરાતની પ્રખ્યાત કલાત્મક વાવ 'રાણકી વાવ' કયા શહેરમાં આવેલી છે?", options: ["A) પાટણ", "B) વડનગર", "C) સિદ્ધપુર", "D) અમદાવાદ"], answer: 0 }
+            ] },
+            { id: "const", name: "૨. ભારતીય બંધારણ અને પંચાયતી રાજ", studyText: "બંધારણના મૂળભૂત હકો, અનુચ્છેદ ૨૧-A, DPSP અને પંચાયતી રાજની શૈક્ષણિક સત્તાઓ.", questions: [
+                { q: "ભારતીય બંધારણના કયા અનુચ્છેદ હેઠળ શિક્ષણને મૂળભૂત હક બનાવવામાં આવ્યો?", options: ["A) અનુચ્છેદ ૧૪", "B) અનુચ્છેદ ૨૧-A", "C) અનુચ્છેદ ૪૫", "D) અનુચ્છેદ ૫૧-A"], answer: 1 }
+            ] },
+            { id: "reason", name: "૩. સામાન્ય માનસિક ક્ષમતા અને તાર્કિક કસોટી", studyText: "લોજિકલ રીઝનિંગ, કોડિંગ-ડીકોડિંગ, શ્રેણી અને સામાન્ય ગણિતના પ્રશ્નો.", questions: [] },
+            { id: "sci", name: "૪. સામાન્ય વિજ્ઞાન, પર્યાવરણ અને ICT", studyText: "રોજિંદા જીવનમાં વિજ્ઞાન, પર્યાવરણ સંરક્ષણ અને કોમ્પ્યુટર / ઇન્ફોર્મેશન ટેકનોલોજી.", questions: [] },
+            { id: "curr", name: "૫. વર્તમાન પ્રવાહો (Current Affairs)", studyText: "વૈશ્વિક, રાષ્ટ્રીય અને રાજ્ય સ્તરની મહત્વની શૈક્ષણિક તેમજ ચાલુ બાબતો.", questions: [] },
+            { id: "future1", name: "૬. POCSO Act અને બાળ સુરક્ષા (પોક્સો એક્ટ)", studyText: "બાળકોના જાતીય શોષણ સામે રક્ષણ આપતો કાયદો (POCSO Act 2012) અને શાળાકીય સલામતી માર્ગદર્શિકા.", questions: [
+                { q: "બાળકોના યૌન અપરાધોથી સંરક્ષણ આપતો 'POCSO Act' કયા વર્ષથી અમલમાં આવ્યો?", options: ["A) ૨૦૦૯", "B) ૨૦૧૨", "C) ૨૦૧૫", "D) ૨૦૧૮"], answer: 1 }
+            ] },
+            { id: "future2", name: "૭. [ભવિષ્ય માટે ખાલી ખાનું - ૨]", studyText: "ભવિષ્યમાં નવો વિષય ઉમેરવા માટેનું ખાલી ખાનું.", questions: [] }
+        ],
+        "part2": [
+            { id: "rte", name: "૧. RTE Act 2009 (બાળકોનો અધિકાર અધિનિયમ)", studyText: "આ કાયદો સમગ્ર દેશમાં ૧ એપ્રિલ ૨૦૧૦ થી અમલમાં આવ્યો.", questions: [
+                { q: "RTE 2009 કઈ તારીખથી સમગ્ર દેશમાં અમલમાં આવ્યો?", options: ["A) ૨૬ જાન્યુઆરી ૨૦૧૦", "B) ૧ એપ્રિલ ૨૦૧૦", "C) ૧૫ ઓગસ્ટ ૨૦૧૦", "D) ૧ જૂન ૨૦૧૧"], answer: 1 },
+                { q: "પ્રાથમિક કક્ષાએ (ધોરણ ૧ થી ૫) શિક્ષક-વિદ્યાર્થી પ્રમાણ (PTR) કેટલું હોવું જોઈએ?", options: ["A) ૨૦:૧", "B) ૩૦:૧", "C) ૩૫:૧", "D) ૪૦:૧"], answer: 1 }
+            ]},
+            { id: "guj_act", name: "૨. ગુજરાત પ્રાથમિક શિક્ષણ અધિનિયમ, ૧૯૪૭", studyText: "બોમ્બે પ્રાઇમરી એજ્યુકેશન રૂલ્સ અને ગુજરાત પ્રાથમિક શિક્ષણ અધિનિયમ.", questions: [] },
+            { id: "nep", name: "૩. રાષ્ટ્રીય શિક્ષણ નીતિ (NEP 2020)", studyText: "નવી શિક્ષણ નીતિનું 5+3+3+4 માળખું અને ECCE.", questions: [] },
+            { id: "mgmt", name: "૪. શાળા સંચાલન, નેતૃત્વ અને CCE મૂલ્યાંકન", studyText: "સતત અને સર્વગ્રાહી મૂલ્યાંકન (CCE) અને શાળા વિકાસ આયોજન.", questions: [] },
+            { id: "rules", name: "૫. નાણાકીય અને સેવાકીય નિયમો (BCSR / GCSR)", studyText: "શાળાની ગ્રાન્ટ, ઓડિટ પ્રક્રિયા અને શિક્ષકોના રજાના નિયમો.", questions: [] },
+            { id: "p2_future1", name: "૬. [ભવિષ્ય માટે ખાલી ખાનું - ૧]", studyText: "ભવિષ્યમાં નવો વિષય ઉમેરવા માટેનું ખાલી ખાનું.", questions: [] },
+            { id: "p2_future2", name: "૭. [ભવિષ્ય માટે ખાલી ખાનું - ૨]", studyText: "ભવિષ્યમાં નવો વિષય ઉમેરવા માટેનું બીજું ખાલી ખાનું.", questions: [] }
+        ],
+        "part3": [
+            { id: "y2012", name: "વર્ષ ૨૦૧૨ - HTAT ઓલ્ડ પેપર રિવિઝન", studyText: "વર્ષ ૨૦૧૨ ની પરીક્ષામાં પૂછાયેલા મહત્વપૂર્ણ પ્રશ્નો.", questions: [] },
+            { id: "y2013", name: "વર્ષ ૨૦૧૩ - HTAT ઓલ્ડ પેપર રિવિઝન", studyText: "વર્ષ ૨૦૧૩ ની પરીક્ષાના પ્રશ્નો.", questions: [] },
+            { id: "y2014", name: "વર્ષ ૨૦૧૪ - HTAT ઓલ્ડ પેપર રિવિઝન", studyText: "વર્ષ ૨૦૧૪ ની પરીક્ષાના પ્રશ્નો.", questions: [] },
+            { id: "y2015", name: "વર્ષ ૨૦૧૫ - HTAT ઓલ્ડ પેપર રિવિઝન", studyText: "વર્ષ ૨૦૧૫ ની પરીક્ષાના પ્રશ્નો.", questions: [] },
+            { id: "y2017", name: "વર્ષ ૨૦૧૭ - HTAT ઓલ્ડ પેપર રિવિઝન", studyText: "વર્ષ ૨૦૧૭ ની પરીક્ષાના પ્રશ્નો.", questions: [] },
+            { id: "p3_future1", name: "૬. [ભવિષ્ય માટે ખાલી ખાનું - ૧]", studyText: "ભવિષ્યમાં નવો વિષય ઉમેરવા માટેનું ખાલી ખાનું.", questions: [] },
+            { id: "p3_future2", name: "૭. [ભવિષ્ય માટે ખાલી ખાનું - ૨]", studyText: "ભવિષ્યમાં નવો વિષય ઉમેરવા માટેનું બીજું ખાલી ખાનું.", questions: [] }
+        ]
+    };
+
+    let storedDb = JSON.parse(localStorage.getItem('htat_custom_db'));
+    let dbData = defaultDb;
+    
+    if (storedDb) {
+        ['part1', 'part2', 'part3'].forEach(pKey => {
+            if (storedDb[pKey]) {
+                storedDb[pKey].forEach(storedSubj => {
+                    let targetSubj = dbData[pKey].find(s => s.id === storedSubj.id);
+                    if (targetSubj) {
+                        if (storedSubj.questions && storedSubj.questions.length > 0) {
+                            targetSubj.questions = storedSubj.questions;
+                        }
+                    } else {
+                        dbData[pKey].push(storedSubj);
+                    }
+                });
+            }
+        });
+        localStorage.setItem('htat_custom_db', JSON.stringify(dbData));
+    } else {
+        localStorage.setItem('htat_custom_db', JSON.stringify(defaultDb));
+    }
+
+    let scoresData = JSON.parse(localStorage.getItem('htat_scores_db')) || {};
+    let mockExamTimerInterval = null;
+
+    function switchMainTab(tabId) {
+        stopSpeech();
+        if(mockExamTimerInterval) clearInterval(mockExamTimerInterval);
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.section-box').forEach(sec => sec.classList.remove('active'));
+        
+        if(tabId === 'home') {
+            document.querySelectorAll('.nav-btn')[0].classList.add('active');
+            document.getElementById('home-section').classList.add('active');
+        } else if(tabId === 'part1') {
+            document.querySelectorAll('.nav-btn')[1].classList.add('active');
+            document.getElementById('part1-section').classList.add('active');
+            renderSubjects('part1');
+        } else if(tabId === 'part2') {
+            document.querySelectorAll('.nav-btn')[2].classList.add('active');
+            document.getElementById('part2-section').classList.add('active');
+            renderSubjects('part2');
+        } else if(tabId === 'part3') {
+            document.querySelectorAll('.nav-btn')[3].classList.add('active');
+            document.getElementById('part3-section').classList.add('active');
+            renderSubjects('part3');
+        } else if(tabId === 'leaderboard') {
+            document.querySelectorAll('.nav-btn')[4].classList.add('active');
+            document.getElementById('leaderboard-section').classList.add('active');
+            renderLeaderboard();
+        } else if(tabId === 'admin') {
+            document.querySelectorAll('.nav-btn')[5].classList.add('active');
+            document.getElementById('admin-section').classList.add('active');
+            checkAdminSession();
+        }
+    }
+
+    function renderSubjects(partKey) {
+        const container = document.getElementById(partKey + '-subjects-container');
+        let html = '';
+        if(dbData[partKey]) {
+            dbData[partKey].forEach(subj => {
+                html += `<div class="dropdown-card">
+                    <div class="dropdown-header" onclick="toggleDropdown(this)">
+                        <span>${subj.name}</span>
+                        <span style="font-size: 18px; color: #3b82f6;">▼</span>
+                    </div>
+                    <div class="dropdown-content">
+                        <p style="margin-bottom: 15px; font-weight: 600; color: #64748b; font-size: 15px;">આ વિષય માટે નીચેમાંથી પસંદ કરો:</p>
+                        <button class="action-btn study-btn" style="padding: 12px 22px; font-size: 15px;" onclick="openStudy('${partKey}', '${subj.id}')">📖 અભ્યાસ નોંધ & MCQ (Study)</button>
+                        <button class="action-btn" style="padding: 12px 22px; font-size: 15px;" onclick="openTest('${partKey}', '${subj.id}')">📝 ૩૦ માર્ક્સની લાઈવ ટેસ્ટ (Test)</button>
+                    </div>
+                </div>`;
+            });
+        }
+        container.innerHTML = html;
+    }
+
+    function toggleDropdown(headerElem) {
+        const content = headerElem.nextElementSibling;
+        const icon = headerElem.querySelector("span:last-child");
+        if(content.style.display === "block") {
+            content.style.display = "none";
+            icon.innerText = "▼";
+        } else {
+            content.style.display = "block";
+            icon.innerText = "▲";
+        }
+    }
+
+    function goBackToMenu() {
+        stopSpeech();
+        if(mockExamTimerInterval) clearInterval(mockExamTimerInterval);
+        document.getElementById('content-view-section').classList.remove('active');
+        switchMainTab('home');
+    }
+
+    function startFullMockExam() {
+        stopSpeech();
+        if(mockExamTimerInterval) clearInterval(mockExamTimerInterval);
+        let allQuestionsPool = [];
+        
+        ['part1', 'part2', 'part3'].forEach(pKey => {
+            if(dbData[pKey]) {
+                dbData[pKey].forEach(subj => {
+                    if(subj.questions && subj.questions.length > 0) {
+                        allQuestionsPool = allQuestionsPool.concat(subj.questions);
+                    }
+                });
+            }
+        });
+
+        document.querySelectorAll('.section-box').forEach(sec => sec.classList.remove('active'));
+        document.getElementById('content-view-section').classList.add('active');
+        let area = document.getElementById('dynamic-content-area');
+
+        if(allQuestionsPool.length === 0) {
+            area.innerHTML = `<button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="switchMainTab('home')">⬅ હોમ પેજ પર જાઓ</button>
+                <div class="study-content-box" style="background:#fee2e2; border-left-color:#ef4444; color:#991b1b;">
+                    <p style="font-weight:600; font-size:15px;">એડમિન પેનલમાં હજુ પૂરતા પ્રશ્નો ઉમેરાયા નથી! કૃપા કરીને પ્રશ્નો ઉમેરો જેથી ૧૫૦ માર્ક્સનું પેપર બની શકે.</p>
+                </div>`;
+            return;
+        }
+
+        let shuffled = [...allQuestionsPool].sort(() => Math.random() - 0.5);
+        let mockQuestions = shuffled.slice(0, 150);
+        window.currentTestQuestions = mockQuestions;
+        window.currentTestSubjId = 'full_mock_150';
+        window.currentTestSubjName = 'HTAT 150 Marks Full Mock Exam';
+        window.currentTestPartKey = 'full_mock';
+
+        let totalSeconds = 180 * 60;
+
+        let html = `<button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="goBackToMenu()">⬅ રદ કરો અને બહાર જાઓ</button>
+            <div class="exam-timer-bar">
+                <span>🎯 HTAT Full Mock Exam (કુલ પ્રશ્નો: ${mockQuestions.length})</span>
+                <span id="timer-clock-display">⏳ સમય બાકી: 03:00:00</span>
+            </div>
+            <form id="active-quiz-form">`;
+
+        mockQuestions.forEach((item, index) => {
+            html += `<div class="question-card" id="test-qcard-${index}">
+                <p style="font-weight: 700; font-size: 16px;"><strong>પ્રશ્ન ${index + 1}: ${item.q}</strong></p>
+                <div class="options">`;
+            if(item.options) {
+                item.options.forEach((opt, optIndex) => {
+                    html += `<label><input type="radio" name="tq${index}" value="${optIndex}"> ${opt}</label>`;
+                });
+            }
+            html += `</div><div id="test-feedback-${index}"></div></div>`;
+        });
+
+        html += `<button type="button" class="action-btn study-btn" style="width:100%; padding:16px; font-size:18px; margin-top:18px; border-radius:12px;" onclick="evaluateActiveTest()">ફુલ મોક ટેસ્ટ સબમિટ કરો અને પરિણામ જુઓ</button></form><div id="test-result-box" style="margin-top:25px;"></div>`;
+        area.innerHTML = html;
+        window.scrollTo(0, 0);
+
+        mockExamTimerInterval = setInterval(() => {
+            totalSeconds--;
+            let hours = Math.floor(totalSeconds / 3600);
+            let minutes = Math.floor((totalSeconds % 3600) / 60);
+            let seconds = totalSeconds % 60;
+            
+            let clockElem = document.getElementById('timer-clock-display');
+            if(clockElem) {
+                clockElem.innerText = `⏳ સમય બાકી: ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+
+            if(totalSeconds <= 0) {
+                clearInterval(mockExamTimerInterval);
+                alert("સમય સમાપ્ત થઈ ગયો છે! તમારી ટેસ્ટ ઓટોમેટિક સબમિટ થઈ રહી છે.");
+                evaluateActiveTest();
+            }
+        }, 1000);
+    }
+
+    function openStudy(partKey, subjId) {
+        stopSpeech();
+        const subj = dbData[partKey].find(s => s.id === subjId);
+        document.querySelectorAll('.section-box').forEach(sec => sec.classList.remove('active'));
+        document.getElementById('content-view-section').classList.add('active');
+        
+        let area = document.getElementById('dynamic-content-area');
+        currentQuestionsList = subj.questions || [];
+        currentQIndex = 0;
+
+        let html = `
+            <button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="stopSpeech(); switchMainTab('${partKey}')">⬅ વિષય યાદી પર પાછા જાઓ</button>
+            
+            <div class="audio-control-bar">
+                <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                    <button class="action-btn" style="background: #0284c7; padding: 10px 18px; font-size: 14px; margin:0;" onclick="resumeOrStartAutoRead()">🔊 વાંચો / આગળ વધો</button>
+                    <button class="action-btn danger-btn" style="padding: 10px 18px; font-size: 14px; margin:0;" onclick="stopSpeech()">⏹ અવાજ બંધ કરો</button>
+                </div>
+                
+                <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                    <label style="font-weight:700; font-size:14px;">પ્રશ્ન નંબરથી શરૂ કરો:</label>
+                    <input type="number" id="jump-to-q-input" value="1" min="1" max="${currentQuestionsList.length || 1}" style="width:70px; padding:8px 10px; border-radius:8px; border:2px solid var(--border-color); font-weight:700; font-size:15px; text-align:center; background:var(--card-bg); color:var(--text-main);">
+                    <button class="action-btn" style="background: #10b981; padding: 10px 16px; font-size: 14px; margin:0;" onclick="triggerCustomStart()">▶ અહીંથી વાંચો</button>
+                </div>
+
+                <div id="audio-live-status" style="width:100%; font-size:14px; font-weight:700; color:#3b82f6; text-align:left; margin-top:5px;">
+                    અવાજ તૈયાર છે. (કુલ પ્રશ્નો: ${currentQuestionsList.length})
+                </div>
+            </div>
+
+            <h2 style="font-size:24px; margin-bottom:18px;">📖 અભ્યાસ નોંધ અને MCQ: ${subj.name}</h2>
+            <div class="study-content-box">
+                <h3 style="margin-top:0; font-size:18px;">સંદર્ભ માહિતી:</h3>
+                <p style="font-size: 16px; line-height: 1.7;">${subj.studyText || 'વિગતવાર નોંધ ઉપલબ્ધ છે.'}</p>
+            </div>
+            <h3 style="margin: 25px 0 15px 0; font-size: 20px;">પ્રશ્નો અને સાચા જવાબો:</h3>`;
+
+        if(!subj.questions || subj.questions.length === 0) {
+            html += `<p style="color: #64748b;">આ વિષયમાં હજુ પ્રશ્નો ઉમેરવામાં આવ્યા નથી.</p>`;
+        } else {
+            subj.questions.forEach((item, index) => {
+                let correctText = item.options[item.answer] || '';
+                let safeQ = item.q.replace(/'/g, "\\'");
+                let safeAns = correctText.replace(/'/g, "\\'");
+
+                html += `<div class="question-card" id="qcard-item-${index}">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap;">
+                        <p style="font-weight: 700; font-size: 16px; margin: 0 0 10px 0;"><strong>પ્રશ્ન ${index + 1}: ${item.q}</strong></p>
+                        <div style="display:flex; gap:6px;">
+                            <button class="action-btn" style="padding: 6px 12px; font-size: 13px; margin: 0; background: #3b82f6; white-space:nowrap;" onclick="speakSingleQuestion('${safeQ}', '${safeAns}')" title="માત્ર આ પ્રશ્ન સાંભળો">🔊 સાંભળો</button>
+                            <button class="action-btn" style="padding: 6px 12px; font-size: 13px; margin: 0; background: #10b981; white-space:nowrap;" onclick="startAutoReadFromIndex(${index})" title="અહીંથી આગળના બધા સળંગ વાંચો">▶ અહીંથી વાંચો</button>
+                        </div>
+                    </div>
+                    <div class="options">`;
+                item.options.forEach((opt, optIndex) => {
+                    let isCorrect = (optIndex === item.answer);
+                    let labelStyle = isCorrect ? 'background: #d1fae5; border-color: #10b981; color: #065f46; font-weight: 700;' : '';
+                    if(document.body.getAttribute('data-theme') === 'dark' && isCorrect) {
+                        labelStyle = 'background: #064e3b; border-color: #10b981; color: #34d399; font-weight: 700;';
+                    }
+                    html += `<label style="${labelStyle}"> ${opt} ${isCorrect ? ' ✔ (સાચો જવાબ)' : ''}</label>`;
+                });
+                html += `</div></div>`;
+            });
+        }
+        area.innerHTML = html;
+        window.scrollTo(0, 0);
+    }
+
+    function openTest(partKey, subjId) {
+        stopSpeech();
+        const subj = dbData[partKey].find(s => s.id === subjId);
+        document.querySelectorAll('.section-box').forEach(sec => sec.classList.remove('active'));
+        document.getElementById('content-view-section').classList.add('active');
+        
+        let area = document.getElementById('dynamic-content-area');
+        if(!subj.questions || subj.questions.length === 0) {
+            area.innerHTML = `<button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="switchMainTab('${partKey}')">⬅ વિષય યાદી પર પાછા જાઓ</button>
+                <h2 style="font-size:24px;">📝 ટેસ્ટ: ${subj.name}</h2>
+                <div class="study-content-box" style="background:#fee2e2; border-left-color:#ef4444; color:#991b1b;">
+                    <p style="font-weight:600; font-size:15px;">આ વિષયમાં હજુ પ્રશ્નો ઉપલબ્ધ નથી!</p>
+                </div>`;
+            return;
+        }
+
+        let shuffledAll = [...subj.questions].sort(() => Math.random() - 0.5);
+        let testQuestions = shuffledAll.slice(0, 30);
+        
+        window.currentTestQuestions = testQuestions;
+        window.currentTestSubjId = subj.id;
+        window.currentTestSubjName = subj.name;
+        window.currentTestPartKey = partKey;
+
+        let html = `<button class="action-btn" style="background: #64748b; margin-bottom: 18px;" onclick="switchMainTab('${partKey}')">⬅ વિષય યાદી પર પાછા જાઓ</button>
+            <h2 style="font-size:24px; margin-bottom:20px;">📝 લાઈવ ટેસ્ટ (૩૦ માર્ક્સ): ${subj.name}</h2><form id="active-quiz-form">`;
+        
+        testQuestions.forEach((item, index) => {
+            html += `<div class="question-card" id="test-qcard-${index}">
+                <p style="font-weight: 700; font-size: 16px;"><strong>પ્રશ્ન ${index + 1}: ${item.q}</strong></p>
+                <div class="options">`;
+            item.options.forEach((opt, optIndex) => {
+                html += `<label><input type="radio" name="tq${index}" value="${optIndex}"> ${opt}</label>`;
+            });
+            html += `</div><div id="test-feedback-${index}"></div></div>`;
+        });
+        html += `<button type="button" class="action-btn study-btn" style="width:100%; padding:14px; font-size:17px; margin-top:18px; border-radius:12px;" onclick="evaluateActiveTest()">ટેસ્ટ સબમિટ કરો અને પરિણામ જુઓ</button></form><div id="test-result-box" style="margin-top:25px;"></div>`;
+        area.innerHTML = html;
+        window.scrollTo(0, 0);
+    }
+
+    function evaluateActiveTest() {
+        if(mockExamTimerInterval) clearInterval(mockExamTimerInterval);
+        let score = 0;
+        let questions = window.currentTestQuestions;
+        
+        questions.forEach((item, index) => {
+            const selected = document.querySelector(`input[name="tq${index}"]:checked`);
+            const card = document.getElementById(`test-qcard-${index}`);
+            const feedback = document.getElementById(`test-feedback-${index}`);
+            
+            if(card) card.className = "question-card";
+            
+            if (selected) {
+                let userAns = parseInt(selected.value);
+                if (userAns === item.answer) {
+                    score++;
+                    if(card) card.classList.add('correct-bg');
+                    if(feedback) feedback.innerHTML = `<p style="font-weight:700; margin-top:10px; font-size:14px;">✔ સાચો જવાબ!</p>`;
+                } else {
+                    if(card) card.classList.add('incorrect-bg');
+                    if(feedback) feedback.innerHTML = `<p style="font-weight:700; margin-top:10px; font-size:14px;">✖ તમારો જવાબ ખોટો છે. સાચો જવાબ: <b>${item.options[item.answer]}</b></p>`;
+                }
+            } else {
+                if(card) card.classList.add('incorrect-bg');
+                if(feedback) feedback.innerHTML = `<p style="font-weight:700; margin-top:10px; font-size:14px;">✖ તમે જવાબ આપ્યો નથી. સાચો જવાબ: <b>${item.options[item.answer]}</b></p>`;
+            }
+        });
+
+        let subjId = window.currentTestSubjId;
+        let subjName = window.currentTestSubjName;
+        let partKey = window.currentTestPartKey || 'part1';
+        let totalQ = questions.length;
+        let percentage = Math.round((score / totalQ) * 100);
+
+        scoresData[subjId] = { 
+            name: subjName, 
+            part: partKey, 
+            score: score, 
+            total: totalQ, 
+            percentage: percentage, 
+            date: new Date().toLocaleDateString() 
+        };
+        localStorage.setItem('htat_scores_db', JSON.stringify(scoresData));
+
+        const resBox = document.getElementById('test-result-box');
+        resBox.style.display = 'block';
+        resBox.innerHTML = `<div style="background:#f0fdf4; border:3px solid #10b981; padding:25px; border-radius:18px; text-align:center; box-shadow: 0 0 25px rgba(16,185,129,0.2);">
+            <h3 style="color:#065f46; margin-top:0; font-size:22px;">ટેસ્ટનું અંતિમ પરિણામ</h3>
+            <p style="font-size:16px;">કુલ પ્રશ્નો: <b>${totalQ}</b></p>
+            <p style="color:#059669; font-size:20px; font-weight:800;">સાચા પડ્યા: ${score} (${percentage}%)</p>
+            <p style="color:#dc2626; font-size:18px; font-weight:800;">ખોટા પડ્યા: ${totalQ - score}</p>
+            <button class="action-btn" onclick="switchMainTab('home')" style="margin-top:18px; padding:12px 30px; font-size:15px;">હોમ પેજ પર પાછા જાઓ</button>
+        </div>`;
+        resBox.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function renderLeaderboard() {
+        let box = document.getElementById('leaderboard-content');
+        let filterSelect = document.getElementById('leaderboard-filter-select');
+        let filterVal = filterSelect ? filterSelect.value : 'all';
+        let keys = Object.keys(scoresData);
+        
+        let filteredKeys = keys.filter(key => {
+            let item = scoresData[key];
+            if(filterVal === 'all') return true;
+            if(filterVal === 'full_mock') return key === 'full_mock_150';
+            return item.part === filterVal;
+        });
+
+        if(filteredKeys.length === 0) {
+            box.innerHTML = `<p style="color: #64748b; text-align: center; margin: 18px 0; font-size: 15px;">આ ફિલ્ટર મુજબ હજુ સુધી કોઈ ટેસ્ટ આપવામાં આવી નથી.</p>`;
+            return;
+        }
+
+        let html = '<h3 style="color:var(--text-main); margin-top:0; font-size:18px;">રેકોર્ડ કરેલા સ્કોરની યાદી:</h3>';
+        filteredKeys.forEach(key => {
+            let item = scoresData[key];
+            let badgeColor = item.percentage >= 80 ? '#10b981' : (item.percentage >= 50 ? '#3b82f6' : '#f59e0b');
+            html += `<div class="score-row">
+                <span>${item.name} (${item.date || 'તારીખ ઉપલબ્ધ નથી'})</span>
+                <span>સ્કોર: <b>${item.score}/${item.total}</b> (${item.percentage}%) <span style="background:${badgeColor}; color:white; padding:3px 10px; border-radius:20px; font-size:12px; margin-left:8px;">${item.percentage >= 80 ? '⭐ Excellent' : '👍 Good'}</span></span>
+            </div>`;
+        });
+        box.innerHTML = html;
+    }
+
+    function resetLeaderboard() {
+        if(confirm("શું તમે ખરેખર બધો પ્રોગ્રેસ સ્કોર રીસેટ કરવા માંગો છો?")) {
+            scoresData = {};
+            localStorage.removeItem('htat_scores_db');
+            renderLeaderboard();
+        }
+    }
+
+    function verifyAdminLogin() {
+        let uId = document.getElementById('admin-user-id').value;
+        let pass = document.getElementById('admin-pass').value;
+        let err = document.getElementById('login-error');
+
+        if(uId === 'admin' && pass === '123') {
+            sessionStorage.setItem('htat_admin_logged', 'true');
+            checkAdminSession();
+        } else {
+            err.innerText = "✖ ખોટો યુઝર આઈડી અથવા પાસવર્ડ!";
+        }
+    }
+
+    function checkAdminSession() {
+        let isLogged = sessionStorage.getItem('htat_admin_logged');
+        if(isLogged === 'true') {
+            document.getElementById('admin-login-container').style.display = 'none';
+            document.getElementById('admin-dashboard-container').style.display = 'block';
+            updateAdminSubDropdown();
+        } else {
+            document.getElementById('admin-login-container').style.display = 'block';
+            document.getElementById('admin-dashboard-container').style.display = 'none';
+        }
+    }
+
+    function adminLogout() {
+        sessionStorage.removeItem('htat_admin_logged');
+        checkAdminSession();
+    }
+
+    function updateAdminSubDropdown() {
+        let partKey = document.getElementById('admin-part-select').value;
+        let subSelect = document.getElementById('admin-subject-select');
+        subSelect.innerHTML = '';
+        
+        if(dbData[partKey]) {
+            dbData[partKey].forEach(subj => {
+                let opt = document.createElement('option');
+                opt.value = subj.id;
+                opt.innerText = subj.name;
+                subSelect.appendChild(opt);
+            });
+        }
+        renderAdminQuestionList();
+    }
+
+    function renderAdminQuestionList() {
+        let partKey = document.getElementById('admin-part-select').value;
+        let subjId = document.getElementById('admin-subject-select').value;
+        let listBox = document.getElementById('admin-question-list-box');
+        
+        if(!dbData[partKey]) return;
+        let subj = dbData[partKey].find(s => s.id === subjId);
+        if(!subj || !subj.questions || subj.questions.length === 0) {
+            listBox.innerHTML = `<p style="color: #64748b; text-align: center; margin: 12px 0; font-size:14px;">આ વિષયમાં હજુ કોઈ પ્રશ્નો ઉપલબ્ધ નથી.</p>`;
+            return;
+        }
+
+        let html = '';
+        subj.questions.forEach((qItem, qIndex) => {
+            html += `<div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding: 10px 0;">
+                <div style="font-size: 14px; padding-right: 12px; font-weight:500;">
+                    <b>પ્રશ્ન ${qIndex + 1}:</b> ${qItem.q}
+                </div>
+                <button class="action-btn danger-btn" style="padding: 6px 14px; font-size: 13px; margin: 0;" onclick="deleteAdminQuestion('${partKey}', '${subjId}', ${qIndex})">ડિલીટ</button>
+            </div>`;
+        });
+        listBox.innerHTML = html;
+    }
+
+    function saveAdminQuestions() {
+        let partKey = document.getElementById('admin-part-select').value;
+        let subjId = document.getElementById('admin-subject-select').value;
+        let jsonInput = document.getElementById('admin-json-input').value;
+        let msg = document.getElementById('admin-msg');
+
+        try {
+            let parsedQuestions = JSON.parse(jsonInput);
+            if(!Array.isArray(parsedQuestions)) throw new Error("JSON must be an array");
+
+            let subj = dbData[partKey].find(s => s.id === subjId);
+            if(subj) {
+                subj.questions = subj.questions.concat(parsedQuestions);
+                localStorage.setItem('htat_custom_db', JSON.stringify(dbData));
+                msg.style.color = "#059669";
+                msg.innerText = "✔ સફળતાપૂર્વક નવા પ્રશ્નો ઉમેરાઈ ગયા છે!";
+                document.getElementById('admin-json-input').value = '';
+                renderAdminQuestionList();
+            } else {
+                msg.style.color = "#dc2626";
+                msg.innerText = "✖ વિષય મળ્યો નથી.";
+            }
+        } catch(e) {
+            msg.style.color = "#dc2626";
+            msg.innerText = "✖ અમાન્ય JSON ફોર્મેટ: કૃપા કરીને વેલિડ JSON ડેટા દાખલ કરો.";
+        }
+    }
+
+    function deleteAdminQuestion(partKey, subjId, qIndex) {
+        if(confirm("શું તમે ખરેખર આ પ્રશ્ન ડિલીટ કરવા માંગો છો?")) {
+            let subj = dbData[partKey].find(s => s.id === subjId);
+            if(subj) {
+                subj.questions.splice(qIndex, 1);
+                localStorage.setItem('htat_custom_db', JSON.stringify(dbData));
+                renderAdminQuestionList();
+            }
+        }
+    }
+
+    function bulkDeleteQuestions() {
+        let partKey = document.getElementById('admin-part-select').value;
+        let subjId = document.getElementById('admin-subject-select').value;
+        
+        if(confirm("ચેતવણી: શું તમે આ વિષયના બધા જ પ્રશ્નો એકસાથે (Bulk Delete) કરવા માંગો છો?")) {
+            let subj = dbData[partKey].find(s => s.id === subjId);
+            if(subj) {
+                subj.questions = [];
+                localStorage.setItem('htat_custom_db', JSON.stringify(dbData));
+                renderAdminQuestionList();
+                alert("આ વિષયના તમામ પ્રશ્નો સફળતાપૂર્વક ડિલીટ થઈ ગયા છે!");
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
